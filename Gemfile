@@ -5,6 +5,20 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem "devise"
+
+group :development do
+  gem "annotate"
+  gem "awesome_print"
+  gem "better_errors"
+  gem "binding_of_caller"
+  gem "dotenv-rails"
+  gem "letter_opener"
+  gem "pry-rails"
+  gem "starter_generators", :git => 'git://github.com/raghubetina/starter_generators.git'
+end
+
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.2'

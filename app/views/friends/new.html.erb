@@ -1,0 +1,91 @@
+<!-- Validation failure messages -->
+<% if @friend.errors.any? %>
+  <% @friend.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Friend</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_friend" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for date -->
+      <div class="form-group">
+        <label for="date" class="control-label">
+          Date
+        </label>
+
+        <input type="text" id="date" name="date" placeholder="Date" class="form-control" value="<%= @friend.date %>">
+      </div>
+
+      <!-- Label and input for email -->
+      <div class="form-group">
+        <label for="email" class="control-label">
+          Email
+        </label>
+
+        <input type="text" id="email" name="email" placeholder="Email" class="form-control" value="<%= @friend.email %>">
+      </div>
+
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <label for="user_id" class="control-label">
+          User
+        </label>
+
+        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @friend.user_id %>">
+      </div>
+
+      <!-- Label and input for birthday -->
+      <div class="form-group">
+        <label for="birthday" class="control-label">
+          Birthday
+        </label>
+
+        <input type="text" id="birthday" name="birthday" placeholder="Birthday" class="form-control" value="<%= @friend.birthday %>">
+      </div>
+
+      <!-- Label and input for friend_name -->
+      <div class="form-group">
+        <label for="friend_name" class="control-label">
+          Friend name
+        </label>
+
+        <input type="text" id="friend_name" name="friend_name" placeholder="Friend name" class="form-control" value="<%= @friend.friend_name %>">
+      </div>
+
+      <!-- Label and input for email_subject -->
+      <div class="form-group">
+        <label for="email_subject" class="control-label">
+          Email subject
+        </label>
+
+        <input type="text" id="email_subject" name="email_subject" placeholder="Email subject" class="form-control" value="<%= @friend.email_subject %>">
+      </div>
+
+      <!-- Label and input for email_body -->
+      <div class="form-group">
+        <label for="email_body" class="control-label">
+          Email body
+        </label>
+
+        <textarea id="email_body" name="email_body" placeholder="Email body" class="form-control" rows="3"><%= @friend.email_body %></textarea>
+      </div>
+
+      <button class="btn btn-success">
+        Create Friend
+      </button>
+      or
+      <a href="/friends">Cancel</a>
+    </form>
+  </div>
+</div>
